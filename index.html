@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#212121"/>
+  <title>Starting with JavaScript</title>
+  <style>
+    body{
+      background-color: #CE93D8;
+      color: #FFFFFF;
+      font-family: Helvetica;
+    }
+    h1{
+      text-align: center;
+      font-size: 3em;
+
+      color: #4A148C;
+      text-shadow: 1px 1px #B39DDB;
+    }
+
+    .about{
+      text-shadow: 0.2px 0.2px #EDE7F6;
+      font-weight: bold;
+    }
+    p, .form{
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .form{
+      width: 80%;
+      border: 1px solid #9C27B0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      margin-left: 10%;
+      text-align: center;
+      padding:20px 20px 30px 20px;
+      box-sizing: border-box;
+      background-color: #FFFFFF;
+    }
+
+    input[type=text], input[type=number]{
+      padding: 6px;
+      font-size: 1.3em;
+      margin-top: 10px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 60%;
+    }
+
+    form label{
+      font-size: 1.2em;
+      padding-top: 10px;
+      color: #4A148C;
+      line-height: 2;
+    }
+
+    .send{
+      color: white;
+      font-weight: bold;
+      background-color: #4A148C;
+      font-size: 1em;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 20px;
+      width: 30%;
+    }
+
+    footer{
+      width: 80%;
+      margin-left: 10%;
+      text-align: center;
+      background-color: #212121;
+      color: white;
+      margin-top: -18px;
+      padding: 3px;
+      box-sizing: border-box;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    footer a{
+      color: #E1BEE7;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px){
+      html{
+        font-size: 14px;
+      }
+
+      header{
+        background-color: #4A148C;
+      }
+
+      h1{
+        font-size: 2em;
+        line-height: 1;
+      }
+      input[type=text], input[type=number]{
+        width: 90%;
+      }
+
+      .form{
+        width: 90%;
+        margin-left: 5%;
+      }
+
+      footer{
+        width: 90%;
+        margin-left: 5%;
+        font-size: 0.8em;
+
+      }
+
+      .send{
+        width: 70%;
+        font-size: 0.8em;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Olá!</h1>
+  <p class="about">Esta é uma simples página com um código para mostrar seu nome e idade.</p>
+  <p class="about">Cross Device and Single Page Code.</p>
+  <div class="form">
+      <form>
+        <label for="nome">Informe seu nome</label><br>
+        <input type="text" placeholder="Ex: Maria" id="nome" spellcheck="false"><br>
+
+        <label for="nome" class="label">Informe sua idade</label><br>
+        <input type="number" placeholder="Ex: 18" id="idade" onkeypress="return checkEnter(event)"><br>
+
+        <input type="button" class="send" value="Mostrar um alerta" onclick="mostrarDados(nome.value, idade.value)">
+      </form>
+  </div>
+  <footer>
+    <h3>Por <a href="http://github.com/romanti-ezer" target="_blank">Romanti-Ezer</a></h3>
+  </footer>
+      <script>
+        function mostrarDados(nome, idade) {
+          if((nome != "") && (idade !== ""))
+          {
+            alert("Olá "+nome+"!\nVocê tem "+idade+" anos.");
+            document.getElementById('nome').value = '';
+            document.getElementById('nome').focus();
+            document.getElementById('idade').value = '';
+          }
+          else{
+            alert("Preencha os campos primeiro!");
+          }
+        }
+
+        function checkEnter(event) {
+          if (event.which == 13 || event.keyCode == 13) {
+              mostrarDados(nome.value, idade.value);
+              return false;
+          }
+          return true;
+        }
+      </script>
+  </div>
+</body>
+</html>
